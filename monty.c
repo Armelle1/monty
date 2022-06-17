@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 	  i = 0;
 	  ptr = strtok(buffer, " ");
 	  ptr[4] = '\0';
-	  while (ptr != NULL)
+	  while (ptr != NULL && i < 2)
 	  {
 		  if (strcmp(ptr, " ") != 0)
 		  {
