@@ -21,6 +21,6 @@ stack_t *push(stack_t **head, const int n);
 void free_stack(stack_t *head);
 stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
 stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n);
-int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+int pop(stack_t **head, unsigned int index);
 stack_t *process(stack_t *stack, char *cmd, char *param, int line);
 #endif
