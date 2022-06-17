@@ -20,21 +20,31 @@ stack_t *process(stack_t *stack, char *cmd, char *param, int line)
 	if (strcmp(cmd, "push") == 0)
 	{
 		if (param == NULL)
-			dprintf(2, "l<%d>: usage: push integer", line);
+		{
+			dprintf(2, "l<%d>: usage: push integer\n", line);
+			exit(EXIT_FAILURE);
+		}
 		value = atoi(param);
 		if (param[0] != '0' && value == 0)
-			dprintf(2, "l<%d>: usage: push integer", line);
+		{
+			dprintf(2, "l<%d>: usage: push integer\n", line);
+			exit(EXIT_FAILURE);
+		}
 		push(&stack, value);
 	}
 	else if (strcmp(cmd, "pall") == 0)
 	{
-		pall(stack);
+		if (stack != NULL)
+			pall(stack);
 	}
 	else if (strcmp(cmd, "pint") == 0)
 	{
 		st = get_dnodeint_at_index(stack, 0);
 		if (st == NULL)
+		{
 			dprintf(2, "l<%d>: can't pint, stack empty\n", line);
+			exit(EXIT_FAILURE);
+		}
 		printf("%d\n", st->n);
 	}
 
